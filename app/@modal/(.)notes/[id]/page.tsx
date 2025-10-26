@@ -1,4 +1,4 @@
-import { NotePreview } from "@/app/@modal/(.)notes/[id]/NotePreview.client";
+import { NotePreview } from "./NotePreview.client";
 
 type Props = {
   params: Promise<{ id: string }>;
