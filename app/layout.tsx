@@ -29,10 +29,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+        className={`${geistSans.variable} ${geistMono.variable} `}
+      >
         <TanStackProvider>
           <Header />
-          {children}
+          <main style={{ flex: 1 }}>{children}</main>
           {modal}
           <Footer />
         </TanStackProvider>
