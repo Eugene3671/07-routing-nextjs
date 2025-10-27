@@ -1,13 +1,8 @@
 import Link from "next/link";
 import css from "./SidebarNotes.module.css";
-import { fetchNotes } from "@/lib/api";
 
 export default async function SidebarNotes() {
-  const notesData = await fetchNotes("", 1);
-
-  const tags = Array.from(
-    new Set(notesData.notes.map(note => note.tag).filter(Boolean))
-  );
+  const tags: string[] = ["Todo", "Work", "Personal", "Meeting", "Shopping"];
 
   return (
     <ul className={css.menuList}>
@@ -19,7 +14,7 @@ export default async function SidebarNotes() {
       </li>
 
       {/* Унікальні теги */}
-      {tags.map(tag => (
+      {tags.map((tag) => (
         <li key={tag} className={css.menuItem}>
           <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
             {tag}
